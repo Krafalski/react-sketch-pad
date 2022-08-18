@@ -1,24 +1,15 @@
 import Square from "./Square";
 
-export default function Pad({ grid, updateBoard, selectedColor }) {
+export default function Pad({ color, board }) {
   return (
     <div className="sketchpad">
-      {grid.map((row, indexX) => {
+      {board.map((square, index) => {
         return (
-          <div key={indexX}>
-            {row.map((color, indexY) => {
-              // console.log(color, indexX, indexY);
-              return (
-                <Square
-                  x={indexX}
-                  y={indexY}
-                  selectedColor={selectedColor}
-                  updateBoard={updateBoard}
-                  key={indexY}
-                />
-              );
-            })}
-          </div>
+          <Square
+            index={index}
+            selectedColor={color}
+            key={`${color}${index}`}
+          />
         );
       })}
     </div>

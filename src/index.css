@@ -22,6 +22,21 @@ code {
 
 main {
   display: flex;
+  justify-content: space-around;
+}
+
+main > div, .palette {
+  width: 20%;
+}
+
+h2 {
+  width: 100%;
+}
+
+.right {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .sketchpad {
@@ -34,22 +49,19 @@ main {
 }
 
 .palette  {
-  height: 80vh;
-  width: 20%;
+  height: 60vh;
+  width: 200px;
   border: 1px solid gold;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  /* justify-content: center; */
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items:center;
 }
 
-.palette > div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  border: 1px solid red;
-  height: 60vh;  
-}
+/* .palette > div {
+  align-self: center;
+} */
 
 .palette  h2 {
   width: 100%;

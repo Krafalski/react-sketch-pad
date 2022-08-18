@@ -1,14 +1,13 @@
-export default function Square({ selectedColor, x, y, updateBoard, color }) {
-  function changeColor(color, x, y) {
-    // console.log("this is selected color", selectedColor);
-    // console.log(color);
-    updateBoard(color, x, y);
+import { useState } from "react";
+export default function Square({ selectedColor, index }) {
+  let [color, setColor] = useState("white");
+  function changeColor(color) {
+    setColor(color);
   }
-
   return (
     <div
-      key={`${x}${y}`}
-      onMouseOver={() => changeColor(selectedColor, x, y)}
+      key={index}
+      onMouseOver={() => changeColor(selectedColor)}
       className="square"
       style={{ backgroundColor: color }}
     ></div>

@@ -1,6 +1,6 @@
 export default function Palette({ colors, chooseColor }) {
   return (
-    <div>
+    <div className="right">
       <h2>Palette</h2>
       <div className="palette">
         {colors.map((color) => {
