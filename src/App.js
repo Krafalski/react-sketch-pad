@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, memo, useEffect, useCallback } from "react";
 import "./App.css";
 import Sketchpad from "./components/Sketchpad";
 import Palette from "./components/ColorPalette";
@@ -27,26 +27,18 @@ const colors = [
 ];
 
 function App() {
-  const newBoard = new Array(2500).fill("white");
   let [color, selectColor] = useState("white");
-  let [board, setBoard] = useState([]);
+  let [resetBoard, setResetBoard] = useState(false);
+
+  /// get rid of this, make bonus
+  // function restart() {
+  //   console.log("restart the darn thing");
+  //   setResetBoard(!resetBoard);
+  // }
 
   function chooseColor(color) {
     selectColor(color);
   }
-
-  function generateBoard() {
-    setBoard(newBoard);
-  }
-
-  function restart() {
-    // setBoard([]);
-  }
-
-  useEffect(() => {
-    generateBoard();
-    console.log(board.length);
-  }, [board[0]]);
 
   return (
     <div className="App">
@@ -56,10 +48,9 @@ function App() {
       <main>
         <div>
           <h2>Color is {color}</h2>
-          <button onClick={restart}>Start over</button>
+          {/* <button onClick={restart}>Start over</button> */}
         </div>
-
-        <Sketchpad color={color} board={board} />
+        <Sketchpad color={color} resetBoard={resetBoard} />
         <Palette colors={colors} chooseColor={chooseColor} />
       </main>
     </div>
